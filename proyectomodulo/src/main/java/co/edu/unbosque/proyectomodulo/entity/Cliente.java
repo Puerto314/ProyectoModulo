@@ -1,47 +1,37 @@
 package co.edu.unbosque.proyectomodulo.entity;
 
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 
-@MappedSuperclass
-public abstract class Cliente extends Persona {
+@Entity
+@Table(name = "cliente")
+public class Cliente extends Persona {
 
-	private double tarifa;
 	private String direccion;
 	private String cedula;
-	private double descuento;
+	private String tipoCliente;
 
 	public Cliente() {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Cliente(String direccion, String cedula, String tipoCliente) {
+		super();
+		this.direccion = direccion;
+		this.cedula = cedula;
+		this.tipoCliente = tipoCliente;
+	}
+
+	public Cliente(String usuario, String contrasenia, String direccion, String cedula, String tipoCliente) {
+		super(usuario, contrasenia);
+		this.direccion = direccion;
+		this.cedula = cedula;
+		this.tipoCliente = tipoCliente;
+	}
+
 	public Cliente(String usuario, String contrasenia) {
 		super(usuario, contrasenia);
 		// TODO Auto-generated constructor stub
-	}
-
-	public Cliente(double tarifa, String direccion, String cedula, double descuento) {
-		super();
-		this.tarifa = tarifa;
-		this.direccion = direccion;
-		this.cedula = cedula;
-		this.descuento = descuento;
-	}
-
-	public Cliente(String usuario, String contrasenia, double tarifa, String direccion, String cedula,
-			double descuento) {
-		super(usuario, contrasenia);
-		this.tarifa = tarifa;
-		this.direccion = direccion;
-		this.cedula = cedula;
-		this.descuento = descuento;
-	}
-
-	public double getTarifa() {
-		return tarifa;
-	}
-
-	public void setTarifa(double tarifa) {
-		this.tarifa = tarifa;
 	}
 
 	public String getDireccion() {
@@ -60,18 +50,17 @@ public abstract class Cliente extends Persona {
 		this.cedula = cedula;
 	}
 
-	public double getDescuento() {
-		return descuento;
+	public String getTipoCliente() {
+		return tipoCliente;
 	}
 
-	public void setDescuento(double descuento) {
-		this.descuento = descuento;
+	public void setTipoCliente(String tipoCliente) {
+		this.tipoCliente = tipoCliente;
 	}
 
 	@Override
 	public String toString() {
-		return " |Cliente| Tarifa: " + tarifa + " Dirección: " + direccion + " Cédula: " + cedula + " Descuento: "
-				+ descuento;
+		return "Cliente [direccion=" + direccion + ", cedula=" + cedula + ", tipoCliente=" + tipoCliente + "]";
 	}
 
 }
