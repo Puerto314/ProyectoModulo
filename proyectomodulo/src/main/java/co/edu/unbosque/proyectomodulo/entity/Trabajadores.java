@@ -6,3 +6,4 @@ import jakarta.persistence.MappedSuperclass;
 public abstract class Trabajadores extends Persona {
 
 }
+//
